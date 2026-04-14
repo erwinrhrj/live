@@ -55,7 +55,7 @@ hr {
 
 @media only screen and (min-width: 1600px){
     .e-home-style{
-        font-family: 'Century Gothic', 'Itim', 'Ubuntu', sans-serif;
+        font-family: 'Poppins','Century Gothic', 'Itim', 'Ubuntu', sans-serif;
         font-size: 1.5rem;
         font-weight: bold;
     }
@@ -63,7 +63,7 @@ hr {
 
 @media only screen and (max-width: 1600px){
     .e-home-style{
-        font-family: 'Century Gothic', 'Itim', 'Ubuntu', sans-serif;
+        font-family: 'Poppins','Century Gothic', 'Itim', 'Ubuntu', sans-serif;
         font-size: 1rem;
         font-weight: bold;
 
@@ -71,7 +71,7 @@ hr {
 }
 
 .e-home-body-style{
-    font-family: 'Century Gothic' ,'Itim', 'Ubuntu', sans-serif;
+    font-family: 'Poppins','Century Gothic' ,'Itim', 'Ubuntu', sans-serif;
     color: #AA14F0;
 }
 
@@ -183,7 +183,7 @@ hr {
 
 .e-desc{
     color: #EEEEEE;
-    font-family: 'Century Gothic' ,'Itim', 'Ubuntu', sans-serif;
+    font-family: 'Poppins','Century Gothic' ,'Itim', 'Ubuntu', sans-serif;
     margin: -15px 0px 10px 0px;
 }
 
