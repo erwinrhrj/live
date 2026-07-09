@@ -43,6 +43,46 @@
             var age = Math.abs(year - 1970);
             
             $('#age-me').text(age+" Years");
+
+            const TOTAL_DURATION = 3000;
+
+            const sequence = [
+                { el: $('#typeHi'), text: "Hi, I'm " },
+                { el: $('#typeName'), text: "Erwin Raharja" },
+                { el: $('#typeDesc'), text: "Fullstack Developer & based in Bandung |Freelance Web Developer" }
+            ];
+
+            const totalChars = sequence.reduce((sum, item) => sum + item.text.length, 0);
+            const speedPerChar = TOTAL_DURATION / totalChars;
+
+            function typeElement(item, callback) {
+                const { el, text } = item;
+                let i = 0;
+
+                function type() {
+                    if (i < text.length) {
+                        const char = (text.charAt(i) === '|') ? '<br>' : text.charAt(i);
+                        el.html(el.html() + char);
+                        i++;
+                        setTimeout(type, speedPerChar);
+                    } else {
+                        if (callback) callback();
+                    }
+                }
+                type();
+            }
+
+            function runSequence(index) {
+                if (index >= sequence.length){ 
+                    $('#nextSection').removeClass('e-hidden-section').addClass('text-focus-in');
+                    return;
+                }
+                typeElement(sequence[index], function () {
+                    runSequence(index + 1);
+                });
+            }
+
+            runSequence(0);
         });
     </script>
     <!-- MANUAL JS -->
@@ -75,18 +115,15 @@
     <!-- {{-- START: Content --}} -->
         <!-- S : HOME -->
         <div class="container pb-4 pt-4" id="home">
-            <div class="row mt-5 text-focus-in">
+            <div class="row mt-5">
                 <div class="col-lg-6 d-flex align-items-center">
                     <div>
                         <div class="e-home-style">
-                            <h3 class="e-hi-style">Hi, I'm </h3>
-                            <h1 class="e-name-style">Erwin Raharja</h1>
+                            <h3 class="e-hi-style" id="typeHi"></h3>
+                            <h1 class="e-name-style" id="typeName"></h1>
                         </div>
-                        <div class="e-desc">
-                            Fullstack Developer & based in Bandung <br>
-                            Freelance Web Developer
-                        </div>
-                        <section>
+                        <div class="e-desc" id="typeDesc"></div>
+                        <section class="e-hidden-section" id="nextSection">
                             <!-- {{-- S: FACEBOOK --}} -->
                                 <a href="http://www.facebook.com/erwinrhrj" target="_blank" title="Facebook" class="btn btn-outline-light e-btn-floating m-1" role="button">
                                     <i class="fa-brands fa-facebook-f fa-lg"></i>
@@ -122,7 +159,7 @@
                 </div>
                 <div class="col-lg-6 d-flex justify-content-center">
                     <div class="p-4 e-star-border">
-                        <img src="images/erwwwww.png" class="rounded e-mypicture" alt="erwin">
+                        <img src="images/erwwwww.png" class="rounded e-mypicture text-focus-in" alt="erwin">
                     </div>
                 </div>
             </div>
