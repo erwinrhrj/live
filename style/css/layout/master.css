@@ -420,3 +420,84 @@ hr {
     text-align: center;
     color: #bbbbbb;
 }
+
+.focus-in-expand {
+	-webkit-animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.glow-pic{
+    -webkit-box-shadow:0px 0px 44px 11px rgba(161, 32, 197, 0.73);
+    -moz-box-shadow: 0px 0px 44px 11px rgba(161, 32, 197, 0.73);
+    box-shadow: 0px 0px 44px 11px rgba(161, 32, 197, 0.73);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0px 0px 20px 5px rgba(161, 32, 197, 0.75);
+    }
+    50% {
+        box-shadow: 0px 0px 44px 11px rgba(161, 32, 197, 0.9);
+    }
+}
+
+.e-star-border {
+    position: relative;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 3px; 
+    overflow: hidden;
+}
+
+.e-star-border::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 270deg,
+        rgba(255, 255, 255, 1) 300deg,
+        rgba(161, 32, 197, 1) 320deg,
+        transparent 340deg,
+        transparent 360deg
+    );
+    animation: rotateStar 3s linear infinite;
+}
+
+.e-star-border::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: #000; 
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.e-star-border img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+@keyframes rotateStar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
